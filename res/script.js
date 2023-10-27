@@ -1,4 +1,4 @@
-const backend_uri = 'http://localhost:3000';
+const backend_uri = 'https://video-watchers-backend.vercel.app';
 let videos_list = [];
 
 function check_login() {
