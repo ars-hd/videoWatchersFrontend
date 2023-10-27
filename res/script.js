@@ -149,7 +149,7 @@ class VideoCard {
             console.log(data)
             localStorage.setItem('credit', data.credit);
             document.getElementById('credit').innerHTML = `$ ${localStorage.getItem('credit')}`;
-            // window.location.reload();
+            window.location.reload();
         }).catch(error => console.log(error));
     }
 }
