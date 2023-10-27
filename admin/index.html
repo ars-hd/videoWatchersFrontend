@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="../res/style.css">
+
+<body class="admin">
+    <form class="create_vid" onsubmit="create_video(event)">
+        <h1>Create Video</h1>
+        <input type="text" id="title" placeholder="Title">
+        <input type="text" id="url" placeholder="URL">
+        <input type="text" id="reward" placeholder="Reward">
+        <button>Submit</button>
+    </form>
+
+    <div class="users"></div>
+
+    <script src="../res/script.js"></script>
+
+    <script>
+
+        if(localStorage.getItem('token') == null || localStorage.getItem('role') !== 'admin') {
+            window.location.href = "/";
+        } else {
+            get_users();
+        }
+
+        async function create_video(e) {
+            e.preventDefault();
+            await fetch(`${backend_uri}/api/videos`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('token')
+                },
+                body: JSON.stringify({
+                    title: document.getElementById('title').value,
+                    url: document.getElementById('url').value,
+                    reward: document.getElementById('reward').value
+                })
+            }).then(
+                res => res.json()
+            ).then(data => {
+                console.log(data)
+            }).catch(error => console.log(error));
+            window.location.href = "/";
+        }
+
+
+        async function get_users() {
+            await fetch(`${backend_uri}/api/profiles`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('token')
+                }
+            }).then(
+                res => res.json()
+            ).then(data => {
+                document.querySelector('.users').innerHTML = '';
+                for (let i = 0; i < data.data.length; i++) {
+                    if (data.data[i].role !== 'admin') {
+                        let p = document.createElement('p');
+                        p.innerHTML = `${data.data[i].email} - ${data.data[i].credit} - ${data.data[i].timestamp}`;
+                        document.querySelector('.users').appendChild(p);
+                    }
+                }
+            }).catch(error => console.log(error));
+        }
+
+    </script>
+</body>
+
+</html>

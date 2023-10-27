@@ -1,0 +1,122 @@
+.hidden {
+    display: none;
+}
+
+*, body {
+    padding: 0;
+    margin:0;
+}
+
+
+.auth {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.auth form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 50vh;
+}
+.auth form input,
+.create_vid input {
+    margin: 8px 0px;
+    padding: 8px 10px;
+    border-radius: 14px;
+    border: 1px solid #c3c3c3;
+    outline: none;
+    background: #c3c3c3;
+    color: #242424;
+    font-size: 24px;
+}
+.auth form button,
+.create_vid button {
+    margin: 8px 0px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    background: #c3c3c3;
+    color: #242424;
+    font-size: 16px;
+}
+
+.navbar {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    background-color: #242424;
+}
+.navbar .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+}
+.navbar .nav-links .link {
+    margin: 0px 10px;
+    text-decoration: none;
+    background-color: #242424;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    color: #fff;
+}
+
+.videos {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 24px 5%;
+}
+
+@media screen and (max-width:768px) {
+    .videos {
+        flex-direction: column;
+        margin: 24px 6%;
+    }
+}
+
+.card {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 4px;
+    width: 275px;
+    margin: 8px;
+    border: 1px solid #c3c3c3;
+}
+.card .stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    padding: 10px 15px;
+}
+
+.create_vid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 50vh;
+}
+
+.admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 24px 5%;
+}
+
+@media screen and (max-width:768px) {
+    .admin {
+        flex-direction: column;
+        margin: 24px 6%;
+    }
+}

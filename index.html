@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+</head>
+<link rel="stylesheet" href="res/style.css">
+<body>
+
+    <div class="auth">
+        <form class="auth_form">
+            <h1 class="form-title">Login / Register</h1>
+            <input type="text" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <div class="btn-group">
+                <button onclick="login(event)">Login</button>
+                &nbsp;
+                <button onclick="register(event)">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="nav-links">
+                <span class="link" id="credit"></span>
+                <button class="link" onclick="logout()">Logout</button>
+            </div>
+        </div>
+        <div class="videos"></div>
+    </div>
+
+    <script src="res/script.js"></script>
+</body>
+
+</html>
